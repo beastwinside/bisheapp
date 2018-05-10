@@ -4,18 +4,42 @@ import {Text,View,Dimensions,Image } from 'react-native';
 
 let scw=Dimensions.get('window').width;
 let sch=Dimensions.get('window').height;
-class Home extends Component{
+
+
+
+class Busroute extends Component{
+
+		constructor(props) {
+			super(props);
+		
+			this.state = {
+				name:'123'
+			};
+		}
+
+
+
+
+	componentDidMount(){
+
+
+	}
+
+
+
+
+
 
 	render(){
 
 		return(
 			<View>
 			<Text>
-				home
+				Busroute
 			</Text>
 			</View>
 		);
 	}
 }
 
-export default Home;
+export default Busroute;

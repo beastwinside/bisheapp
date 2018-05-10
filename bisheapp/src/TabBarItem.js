@@ -1,10 +1,3 @@
-/**
- * Copyright (c) 2017-present, Liu Jinyong
- * All rights reserved.
- *
- * https://github.com/huanxsd/MeiTuan  
- * @flow
- */
 
  import React, { Component } from 'react';
 
@@ -27,9 +20,6 @@ class TabBarItem extends Component {
         return (
             <View style={styles.container}>
            
-            <Text >
-            {this.props.title}
-            </Text>
             </View>
             );
     }

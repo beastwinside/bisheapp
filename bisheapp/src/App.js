@@ -4,7 +4,7 @@ import {  Platform, StyleSheet, Text, View,  TouchableOpacity} from 'react-nativ
 import { Router, Scene,Actions} from 'react-native-router-flux';
 
 
-import Home from './home.js';
+import Busroute from './busroute.js';
 import Login from './login.js';
 import Register from './register.js';
 import TabBarItem from './TabBarItem.js';
@@ -17,25 +17,31 @@ export default class App extends Component<Props> {
     return (
 
       <Router uriPrefix={'thesocialnetwork.com'}>
-  <Scene key="root" >
+      <Scene key="root" >
 
-    <Scene
-          key="tabbar"
-          tabs={true}
-          tabBarStyle={{ backgroundColor: '#86C8FF' }}
-          tabBarPosition="bottom" 
-        >
-  <Scene key="home" component={Home}  hideNavBar />
-      <Scene key="login" component={Login}  hideNavBar  />
-      <Scene key="register" component={Register}  hideNavBar    />
+      <Scene
+      key="tabbar"
+      tabs={true}
+      tabBarStyle={{ backgroundColor: '#FFFFD9' }}
+      tabBarPosition="bottom" 
+
+      labelStyle={{fontSize:20,}}
+      >
+      <Scene  key="busroute" component={Busroute}  hideNavBar tabBarLabel="公交路线查询" />
+      
+      <Scene  key="register" component={Register}  hideNavBar   tabBarLabel="站点查询"  />
       </Scene>
       
-  </Scene>
-</Router>
+
+       <Scene key="login" component={Login}  hideNavBar initial   />
+
+      </Scene>
+
+      </Router>
 
 
-  
-    );
+
+      );
   }
 }
 
