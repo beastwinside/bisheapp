@@ -60,8 +60,6 @@ class login extends Component{
 	}
 
 	   dnt(){
-
-
 	}
 
 

@@ -22,7 +22,7 @@ export default class App extends Component<Props> {
       <Scene
       key="tabbar"
       tabs={true}
-      tabBarStyle={{ backgroundColor: '#FFFFD9' }}
+      tabBarStyle={{ backgroundColor: '#0F0F0F' }}
       tabBarPosition="bottom" 
 
       labelStyle={{fontSize:20,}}
