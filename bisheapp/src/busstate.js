@@ -7,7 +7,7 @@ let sch=Dimensions.get('window').height;
 
 
 
-class Register extends Component{
+class Busstate extends Component{
 	constructor(props) {
 		super(props);
 		const ds=new ListView.DataSource({
@@ -23,7 +23,7 @@ class Register extends Component{
 
 			},
 			{
-				name:'海曙区',
+				name:'海曙区---------->（车辆停靠）',
 				price:'价格',
 				index:'位置1'	
 
@@ -37,7 +37,7 @@ class Register extends Component{
 
 			},
 			{
-				name:'江东区',
+				name:'江东区--------->(车辆停靠)',
 				price:'价格',
 				index:'位置1'
 
@@ -102,7 +102,7 @@ class Register extends Component{
 			<View>
 			<View style={{width:300,marginLeft:(scw-300)/2,}}>
 			<Text sttyle={{fontSize:20,color:'black'}}>
-			站点名为：{rowData.placename}
+			{rowData.name}
 			</Text>
 			</View>
 			<View style={{width:300,marginLeft:(scw-300)/2,}}>
@@ -112,11 +112,13 @@ class Register extends Component{
 			</View>
 			<View style={{width:300,marginLeft:(scw-300)/2,}}>
 			<Text style={{color:'black',fontSize:15}}>
-			站点位置索引：{rowData.stopindex}
+			位置：{rowData.stopindex}
 			</Text>
 			</View>
 			</View>
 			<View style={{height:15}}></View>
+
+			<View style={{height:20,borderBottomWidth:5,borderColor:'black'}}></View>
 			</TouchableOpacity>
 
 			);
@@ -130,67 +132,30 @@ class Register extends Component{
 			<ScrollView>
 
 
+				<View style={{height:80}}></View>
+
 			<View style={{width:300,marginLeft:(scw-300)/2,}}>	
+
+			<View >
+			<Text style={{color:'black',fontSize:18}}>到站情况查询--输入要查询到站情况的公交车线路: </Text>
+			</View>
+			<View >
+			<TextInput   onChange={e=>this.setState({routeidquery: e.nativeEvent.text })}  value='661-1'/>
+			</View>
+
+
 			<View style={{height:40}}></View>
 			</View>
-			<View style={{width:300,marginLeft:(scw-300)/2,}}>
-			<Text style={{color:'black',fontSize:18}}>出发站点: </Text>
-			</View>
-			<View style={{width:300,marginLeft:(scw-300)/2,}}>
-			<TextInput   onChange={e=>this.setState({routeidquery: e.nativeEvent.text })} value='学士路'/>
-			</View>
 
-			<View style={{width:300,marginLeft:(scw-300)/2,}}>
-			<Text style={{color:'black',fontSize:18}}>终点站点: </Text>
-			</View>
-			<View style={{width:300,marginLeft:(scw-300)/2,}}>
-			<TextInput   onChange={e=>this.setState({routeidquery: e.nativeEvent.text })}  value='火车南站'/>
-			</View>
 
-			<View style={{width:300,marginLeft:(scw-300)/2,}}>
-			<Button   onPress={this.dnt}   title='查询'/>
-			</View>
+
 			<View style={{height:40}}></View>
-
-
-			<View>
-			<Text style={{textAlign:'center'}}>
-			该次路线指引需经历一次换乘！无直达路线！
-			</Text>
-
-			</View>
-
-			<View style={{height:20,borderBottomWidth:5,borderColor:'black'}}></View>
-			<View>
-			<Text style={{textAlign:'center'}}>
-			从“学士路”到达“中庆广场站” “天一广场站”可换乘 661 ，662
-			</Text>
-			</View>
-			<View style={{height:40}}></View>
-			<View>
-			<Text style={{textAlign:'center'}}>
-			“中庆广场站” “天一广场站”到达“火车南站”可换乘 637 ，638 ，661-1
-			</Text>
-			</View>
-
-			<View style={{height:20,borderBottomWidth:5,borderColor:'black'}}></View>
-
-
-			<View>
-			<Text style={{textAlign:'center'}}>
-			从“学士路”到达“青少年宫”可换乘 669 ，670
-			</Text>
-			</View>
-			<View style={{height:40}}></View>
-			<View>
-			<Text style={{textAlign:'center'}}>
-			“青少年宫”到达“学士路站”可换乘 699 ，677 ，661-2
-			</Text>
-			</View>
-			<View style={{height:20,borderBottomWidth:5,borderColor:'black'}}></View>
-
+			<ListView
+			dataSource={this.state.dataSource}
+			renderRow={this.renderRow1}
+			/>
 			</ScrollView>
 			);
 	}
 }
-export default Register;
+export default Busstate;

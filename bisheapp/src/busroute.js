@@ -17,37 +17,11 @@ class Busroute extends Component{
 			routeidquery:'',
 			name:'123',
 			dataSource:ds.cloneWithRows([{
-				name:'鄞州区',
-				price:'价格',
-				index:'位置1'
+				name:'站点名次',
+				price:'本站价格',
+				index:'位置'
 
 
-			},
-			{
-				name:'海曙区',
-				price:'价格',
-				index:'位置1'	
-
-
-			},
-			{
-				name:'北仑区',
-				price:'价格',
-				index:'位置1'
-
-
-			},
-			{
-				name:'江东区',
-				price:'价格',
-				index:'位置1'
-
-
-			},
-			{
-				name:'镇海区',
-				price:'价格',
-				index:'位置1'
 			}])
 		};
 
