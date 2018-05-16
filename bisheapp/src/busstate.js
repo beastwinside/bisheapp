@@ -54,6 +54,7 @@ class Busstate extends Component{
 	}
 
 
+
 	dnt(){
 		let URL = 'http://10.2.10.32:8089/routeidquery';
 		fetch(URL, {
@@ -73,8 +74,6 @@ class Busstate extends Component{
 					rowHasChanged:(r1,r2)=>r1!=r2});
 				this.setState({
 					dataSource:ds.cloneWithRows(data)
-
-
 				});
 
 

@@ -74,22 +74,22 @@ class Busroute extends Component{
 		
 			return(
 				<TouchableOpacity activeOpacity={0.9} 	>
+
 				<View>
 				<View style={{width:300,marginLeft:(scw-300)/2,}}>
-				<Text sttyle={{fontSize:20,color:'black'}}>
-				站点名为：{rowData.placename}
+				<Text style={{color:'black',fontSize:12}}>
+				位置：{rowData.stopindex}	★	★	★	{rowData.placename}★	★	★本站价格：{rowData.price}元
 				</Text>
-				</View>
-				<View style={{width:300,marginLeft:(scw-300)/2,}}>
-				<Text style={{fontSize:18,color:'black'}}>
-				本站价格：{rowData.price}
-				</Text>
-				</View>
-				<View style={{width:300,marginLeft:(scw-300)/2,}}>
-				<Text style={{color:'black',fontSize:15}}>
-				站点位置索引：{rowData.stopindex}
-				</Text>
-				</View>
+				</View>	
+				<Text style={{color:'black',fontSize:12,textAlign:'center'}}>
+				【】
+				</Text>	
+				<Text style={{color:'black',fontSize:12,textAlign:'center'}}>
+				【】
+				</Text>	
+				<Text style={{color:'black',fontSize:12,textAlign:'center'}}>
+				【】
+				</Text>	
 				</View>
 				<View style={{height:15}}></View>
 				</TouchableOpacity>
@@ -116,6 +116,13 @@ class Busroute extends Component{
 			</View>
 			<View style={{width:300,marginLeft:(scw-300)/2,}}>
 			<Button   onPress={this.dnt}   title='查询'/>
+			</View>
+			<View style={{width:300,marginLeft:(scw-300)/2,}}>
+			<Text>公交路线777号  </Text>
+			<Text>早班时间：5：30 晚班时间：6.：40</Text>
+			 <Text>每班间隔：15分钟 </Text>
+
+
 			</View>
 				<View style={{height:40}}></View>
 			<ListView

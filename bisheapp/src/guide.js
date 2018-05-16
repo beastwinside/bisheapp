@@ -7,13 +7,15 @@ let sch=Dimensions.get('window').height;
 
 
 
-class Register extends Component{
+class Guide extends Component{
 	constructor(props) {
 		super(props);
 		const ds=new ListView.DataSource({
 			rowHasChanged:(r1,r2)=>r1!=r2});
 		this.state = {
 			routeidquery:'',
+			chufa:'A站',
+			zhongdian:'B站',
 			name:'123',
 			dataSource:ds.cloneWithRows([{
 				name:'鄞州区',
@@ -55,7 +57,7 @@ class Register extends Component{
 
 
 	dnt(){
-		let URL = 'http://10.2.10.32:8089/routeidquery';
+		let URL = 'http://10.2.10.32:8089/guide';
 		fetch(URL, {
 			method: 'post',
 			mode: 'cors',
@@ -63,19 +65,21 @@ class Register extends Component{
 				'Content-Type': 'application/json;charset=utf-8'
 			},
 			body: JSON.stringify(
-				{routeid:this.state.routeidquery}
+				{data:this.state}
 				)
 
 		}).then(response => response.json())
 		.then(
 			data => {
-				const ds=new ListView.DataSource({
-					rowHasChanged:(r1,r2)=>r1!=r2});
-				this.setState({
-					dataSource:ds.cloneWithRows(data)
+				var obj=JSON.parse(data);
 
-
-				});
+				var jsonArr=[];
+				for(i=0;i<obj.length;i++)
+				{
+					jsonArr[i]=obj[i];
+					alert(jsonArr[i].routeid)
+			
+				}
 
 
 			}
@@ -137,14 +141,14 @@ class Register extends Component{
 			<Text style={{color:'black',fontSize:18}}>出发站点: </Text>
 			</View>
 			<View style={{width:300,marginLeft:(scw-300)/2,}}>
-			<TextInput   onChange={e=>this.setState({routeidquery: e.nativeEvent.text })} value='学士路'/>
+			<TextInput   onChange={e=>this.setState({chufa: e.nativeEvent.text })} defaultValue={this.state.chufa}/>
 			</View>
 
 			<View style={{width:300,marginLeft:(scw-300)/2,}}>
 			<Text style={{color:'black',fontSize:18}}>终点站点: </Text>
 			</View>
 			<View style={{width:300,marginLeft:(scw-300)/2,}}>
-			<TextInput   onChange={e=>this.setState({routeidquery: e.nativeEvent.text })}  value='火车南站'/>
+			<TextInput   onChange={e=>this.setState({zhongdian: e.nativeEvent.text })}  defaultValue={this.state.zhongdian}/>
 			</View>
 
 			<View style={{width:300,marginLeft:(scw-300)/2,}}>
@@ -193,4 +197,4 @@ class Register extends Component{
 			);
 	}
 }
-export default Register;
+export default Guide;

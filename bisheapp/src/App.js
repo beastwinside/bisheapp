@@ -6,7 +6,7 @@ import { Router, Scene,Actions} from 'react-native-router-flux';
 
 import Busroute from './busroute.js';
 import Login from './login.js';
-import Register from './register.js';
+import Guide from './guide.js';
 import Busstate from './busstate.js';
 import TabBarItem from './TabBarItem.js';
 
@@ -29,8 +29,8 @@ export default class App extends Component<Props> {
       labelStyle={{fontSize:20,}}
       >
       <Scene  key="busroute" component={Busroute}  hideNavBar tabBarLabel="公交路线查询" />
-      <Scene  key="register" component={Register}  hideNavBar   tabBarLabel="换乘指引"  />
-         <Scene  key="busstate" component={Busstate}  hideNavBar   tabBarLabel="到站查询"  />
+      <Scene  key="guide" component={Guide}  hideNavBar   tabBarLabel="换乘指引"  />
+         <Scene  key="busstate" component={Busstate}  hideNavBar   tabBarLabel="到站查询" />
       </Scene>
     
 
